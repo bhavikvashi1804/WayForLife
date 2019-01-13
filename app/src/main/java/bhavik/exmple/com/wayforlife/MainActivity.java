@@ -1,5 +1,7 @@
 package bhavik.exmple.com.wayforlife;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -63,6 +65,12 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
+        else if(id==R.id.activity_about_us)
+        {
+            Intent follow=new Intent(this,about_us.class);
+            startActivity(follow);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -74,13 +82,31 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.news_feed) {
-            // Handle the camera action
+            Intent follow=new Intent(this,News.class);
+            startActivity(follow);
         } else if (id == R.id.blood_reqest) {
+            Uri uri = Uri.parse("http://www.friends2support.org/"); // missing 'http://' will cause crashed
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
 
         } else if (id == R.id.report_problem) {
+            Intent follow=new Intent(this,Report.class);
+            startActivity(follow);
 
         } else if (id == R.id.donate) {
+            Uri uri = Uri.parse("https://milaap.org/fundraisers/wayforlife?utm_source=shorturl"); // missing 'http://' will cause crashed
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
 
+        }else if(id==R.id.follow)
+        {
+            Intent follow=new Intent(this,ActivityFollowUs.class);
+            startActivity(follow);
+        }
+        else if(id==R.id.events)
+        {
+            Intent follow=new Intent(this,Events.class);
+            startActivity(follow);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
