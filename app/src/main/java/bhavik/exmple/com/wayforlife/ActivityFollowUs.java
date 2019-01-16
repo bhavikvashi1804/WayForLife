@@ -1,5 +1,6 @@
 package bhavik.exmple.com.wayforlife;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,21 @@ import android.view.View;
 
 public class ActivityFollowUs extends AppCompatActivity {
 
+    public void fb(String id){
+
+        try {
+
+            Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("fb://page/"+id ));
+            startActivity(intent);
+
+
+        }catch (ActivityNotFoundException e){
+            Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.facebook.com/"+id));
+            startActivity(intent);
+
+        }
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,9 +32,7 @@ public class ActivityFollowUs extends AppCompatActivity {
 
     public void followfacebook(View view)
     {
-        Uri uri = Uri.parse("https://m.facebook.com/wayforlifeofficial/"); // missing 'http://' will cause crashed
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+        fb("wayforlifeofficial");
     }
 
     public void followtwitter(View view)

@@ -18,6 +18,12 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public void joinbutton(View view){
+
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSds5LLkINVnDYxdwP-BjWmH5T5VNYNJbzmjDEIpBGtX7pbaiA/viewform"));
+        Intent browserChooserIntent = Intent.createChooser(browserIntent , "Choose browser of your choice");
+        startActivity(browserChooserIntent );
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,18 +91,17 @@ public class MainActivity extends AppCompatActivity
             Intent follow=new Intent(this,News.class);
             startActivity(follow);
         } else if (id == R.id.blood_reqest) {
-            Uri uri = Uri.parse("http://www.friends2support.org/"); // missing 'http://' will cause crashed
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
-
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.friends2support.org"));
+            Intent browserChooserIntent = Intent.createChooser(browserIntent , "Choose browser of your choice");
+            startActivity(browserChooserIntent );
         } else if (id == R.id.report_problem) {
             Intent follow=new Intent(this,Report.class);
             startActivity(follow);
 
         } else if (id == R.id.donate) {
-            Uri uri = Uri.parse("https://milaap.org/fundraisers/wayforlife?utm_source=shorturl"); // missing 'http://' will cause crashed
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://m-lp.co/wayoflif"));
+            Intent browserChooserIntent = Intent.createChooser(browserIntent , "Choose browser of your choice");
+            startActivity(browserChooserIntent );
 
         }else if(id==R.id.follow)
         {
