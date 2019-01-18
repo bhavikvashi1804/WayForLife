@@ -5,10 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".News">
+<android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        app:tabSelectedTextColor="@android:color/black"
+        app:tabTextColor="@android:color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="News Feed"/>
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discussions"
+            />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Polls" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complaints" />
+    </android.support.design.widget.TabLayout>
+
 
 </LinearLayout>
