@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/darker_gray"
     android:layout_height="match_parent"
     tools:context=".about_us">
 
@@ -25,4 +27,28 @@
         android:layout_marginLeft="50dp"
         android:text="WayForLife"/>
     </LinearLayout>
+
+    <TextView
+        android:padding="20dp"
+        android:background="@drawable/rec1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/about"/>
+
+    <TextView
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rec1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registration no – BGR-4-00108-2017-2018"/>
+
+    <TextView
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/rec1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/location"/>
 </LinearLayout>
