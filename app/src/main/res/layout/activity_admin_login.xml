@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/darker_gray"
+    android:gravity="center_horizontal"
+    tools:context=".admin_login">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Loging"
+        android:textSize="50dp"/>
+
+    <TextView
+        android:background="@drawable/rec1"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter the user name"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="admin123@gmail.com"
+        android:layout_margin="10dp"
+        android:background="@drawable/rec1"
+        android:padding="10dp"
+        android:id="@+id/admin_loging_uname"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textColor="@android:color/black"
+        android:background="@drawable/rec1"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="Enter the password"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rec1"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="admin123"
+        android:id="@+id/admin_loging_upw"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="8dp"
+        android:id="@+id/adminloging_loging"
+        android:background="@drawable/rec1"
+        android:text="Loging"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/adminloging_register"
+        android:padding="8dp"
+        android:background="@drawable/rec1"
+        android:text="Register as Admin"/>
+
+</LinearLayout>

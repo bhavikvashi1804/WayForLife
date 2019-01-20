@@ -3,7 +3,7 @@ package bhavik.exmple.com.wayforlife.Database;
 import java.sql.Time;
 import java.util.Date;
 
-public class Events
+public class EventsObj
 {
     String name,desc,place;
     Date edate;
