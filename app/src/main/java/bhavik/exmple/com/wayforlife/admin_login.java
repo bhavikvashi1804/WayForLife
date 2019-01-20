@@ -2,6 +2,7 @@ package bhavik.exmple.com.wayforlife;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -46,29 +47,24 @@ public class admin_login extends AppCompatActivity {
                 final String cUserName=uname.getText().toString();
                 final String cPassWord=upassword.getText().toString();
 
-
                 fetch(cUserName,cPassWord);
 
-
-
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                if(check)
-                {
-                    Intent intent=new Intent(getApplicationContext(),uploadEvent.class);
-                    startActivity(intent);
-                    pd.dismiss();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"Username/ password doesnot match",Toast.LENGTH_SHORT).show();
-                }
-
-
-
+               final Handler h=new Handler();
+               h.postDelayed(new Runnable() {
+                   @Override
+                   public void run() {
+                       pd.dismiss();
+                       if(check)
+                       {
+                           Intent intent=new Intent(getApplicationContext(),uploadEvent.class);
+                           startActivity(intent);
+                           check=false;
+                       }
+                       else {
+                           Toast.makeText(getApplicationContext(),"Username/ password doesnot match",Toast.LENGTH_SHORT).show();
+                       }
+                   }
+               },5000);
 
             }
         });
@@ -128,13 +124,10 @@ public class admin_login extends AppCompatActivity {
 
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-
                 if(name.equals(dataSnapshot.getKey()) && pw.equals(dataSnapshot.getValue(String.class)))
                 {
                     check=true;
                 }
-
             }
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -149,8 +142,5 @@ public class admin_login extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-
     }
-
-
 }
