@@ -22,11 +22,11 @@
         android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter the user name"/>
+        android:text="User name"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="admin123@gmail.com"
+        android:hint="Enter the Username"
         android:layout_margin="10dp"
         android:background="@drawable/rec1"
         android:padding="10dp"
@@ -39,14 +39,14 @@
         android:background="@drawable/rec1"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:text="Enter the password"/>
+        android:text="Password"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rec1"
         android:layout_margin="10dp"
         android:padding="10dp"
-        android:hint="admin123"
+        android:hint="Enter the password"
         android:id="@+id/admin_loging_upw"/>
     <Button
         android:layout_width="wrap_content"
