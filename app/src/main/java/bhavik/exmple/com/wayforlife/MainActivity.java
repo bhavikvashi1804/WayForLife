@@ -77,6 +77,12 @@ public class MainActivity extends AppCompatActivity
             startActivity(follow);
             return true;
         }
+        else if(id==R.id.activity_admin_loging)
+        {
+            Intent adminlogin=new Intent(this,admin_login.class);
+            startActivity(adminlogin);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

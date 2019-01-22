@@ -9,6 +9,13 @@
         app:showAsAction="never"></item>
 
     <item
+        android:title="Admin Login"
+        android:orderInCategory="100"
+        android:id="@+id/activity_admin_loging">
+
+    </item>
+
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"

@@ -1,7 +1,10 @@
 package bhavik.exmple.com.wayforlife;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -36,81 +39,73 @@ public class admin_login extends AppCompatActivity {
         final EditText uname= (EditText)findViewById(R.id.admin_loging_uname);
         final EditText upassword=(EditText)findViewById(R.id.admin_loging_upw);
 
-        Button loging=(Button)findViewById(R.id.adminloging_loging);
+
+        boolean connected = false;
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        }
+        else
+            connected = false;
+
+
+
+
+
+
+
+            Button loging = (Button) findViewById(R.id.adminloging_loging);
+        final boolean finalConnected = connected;
         loging.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pd=new ProgressDialog(admin_login.this);
-                pd.show();
-                pd.setMessage("Authenticating...");
+                @Override
+                public void onClick(View v) {
 
-                final String cUserName=uname.getText().toString();
-                final String cPassWord=upassword.getText().toString();
+                    if(finalConnected)
+                    {
 
-                fetch(cUserName,cPassWord);
 
-               final Handler h=new Handler();
-               h.postDelayed(new Runnable() {
-                   @Override
-                   public void run() {
-                       pd.dismiss();
-                       if(check)
-                       {
-                           Intent intent=new Intent(getApplicationContext(),uploadEvent.class);
-                           startActivity(intent);
-                           check=false;
-                       }
-                       else {
-                           Toast.makeText(getApplicationContext(),"Username/ password doesnot match",Toast.LENGTH_SHORT).show();
-                       }
-                   }
-               },5000);
+                        pd = new ProgressDialog(admin_login.this);
+                        pd.show();
+                        pd.setMessage("Authenticating...");
 
-            }
-        });
+                        final String cUserName = uname.getText().toString();
+                        final String cPassWord = upassword.getText().toString();
 
-        Button register=(Button)findViewById(R.id.adminloging_register);
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                        fetch(cUserName, cPassWord);
 
-                String username=uname.getText().toString();
-                String password=upassword.getText().toString();
-
-                if(username.isEmpty() && password.isEmpty())
-                {
-                    Toast.makeText(getApplicationContext(),"Please enter the username & password",Toast.LENGTH_SHORT).show();
-
-                }
-                else
-                {
-
-                    pd=new ProgressDialog(admin_login.this);
-                    pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                    pd.setTitle("Updating Database");
-                    pd.setProgress(0);
-                    pd.show();
-
-                    DatabaseReference r = database.getInstance().getReference();
-
-                    r.child("Admins").child(username).setValue(password).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-
-                            if (task.isSuccessful()) {
+                        final Handler h = new Handler();
+                        h.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
                                 pd.dismiss();
-                                Toast.makeText(getApplicationContext(), "Database Updated", Toast.LENGTH_SHORT).show();
+                                if (check) {
+                                    Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
+                                    startActivity(intent);
+                                    check = false;
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Username/ password doesnot match", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }, 5000);
+                    }
 
-                            }else
-                                Toast.makeText(getApplicationContext(), "Database entry is not created", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"Please check your internet connection",Toast.LENGTH_LONG).show();
+
+                    }
+
+
 
                 }
-
-                //send email
-            }
-        });
+            });
+        /*
+        else
+            Toast.makeText(getApplicationContext(),"Please check your internet connection",Toast.LENGTH_LONG).show();
+        */
     }
 
     private void fetch(String cUserName,String cPassWord)

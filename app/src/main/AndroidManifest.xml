@@ -3,7 +3,6 @@
     package="bhavik.exmple.com.wayforlife">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -17,7 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin_login"></activity>
+        <activity android:name=".registerAdmin"></activity>
+        <activity
+            android:name=".AdminActivity"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".admin_login" />
         <activity android:name=".uploadEvent" />
         <activity android:name=".event" />
         <activity android:name=".ViewEventList" />

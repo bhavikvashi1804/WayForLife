@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class Events extends BaseActivity {
+public class Events extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
