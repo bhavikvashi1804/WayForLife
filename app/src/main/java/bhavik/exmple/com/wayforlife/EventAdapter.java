@@ -37,8 +37,8 @@ public class EventAdapter extends ArrayAdapter<EventsObj>
 
         ename.setText(curEvent.getName());
         eplace.setText(curEvent.getPlace());
-        edate.setText(curEvent.getEdate().toString());
-        edur.setText(curEvent.getDur().toString());
+        edate.setText(curEvent.getEdate());
+        edur.setText(curEvent.getDur());
 
         return convertView;
     }

@@ -6,7 +6,22 @@ import java.util.Date;
 public class EventsObj
 {
     String name,desc,place,edate,etime,dur;
-    
+
+    public EventsObj(){
+
+    }
+
+    public EventsObj(String name1,String desc1,String place1,String edate1,String etime1,String dur1)
+    {
+        name=name1;
+        desc=desc1;
+        place=place1;
+        edate=edate1;
+        etime=etime1;
+        dur=dur1;
+
+    }
+
     public void setName(String name) {
         this.name = name;
     }
