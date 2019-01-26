@@ -4,30 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".News">
-<android.support.design.widget.TabLayout
-        android:layout_width="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dp"
+    android:layout_gravity="center">
+
+    <Button
+        android:layout_width="150dp"
         android:layout_height="60dp"
-        android:background="@color/colorPrimary"
-        app:tabSelectedTextColor="@android:color/black"
-        app:tabTextColor="@android:color/white">
+        android:text="Discussions"
+        android:id="@+id/discussions"
+        android:layout_gravity="center"
 
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Discussions"
-            />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Polls" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Complaints" />
-    </android.support.design.widget.TabLayout>
-
+        />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="Polls"
+        android:id="@+id/polls"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
+        />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="Complaints"
+        android:id="@+id/complaints"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
+        />
 
 </LinearLayout>
