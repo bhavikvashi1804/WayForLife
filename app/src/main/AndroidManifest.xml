@@ -41,5 +41,4 @@
         <activity android:name=".Report" />
         <activity android:name=".about_us" />
     </application>
-
 </manifest>

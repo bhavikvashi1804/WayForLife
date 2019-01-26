@@ -5,19 +5,18 @@ import java.util.Date;
 
 public class EventsObj
 {
-    String name,desc,place,edate,etime,dur;
+    String name,desc,place,edate,dur;
 
     public EventsObj(){
 
     }
 
-    public EventsObj(String name1,String desc1,String place1,String edate1,String etime1,String dur1)
+    public EventsObj(String name1,String desc1,String place1,String edate1,String dur1)
     {
         name=name1;
         desc=desc1;
         place=place1;
         edate=edate1;
-        etime=etime1;
         dur=dur1;
 
     }
@@ -42,10 +41,6 @@ public class EventsObj
         this.dur = dur;
     }
 
-    public void setEtime(String etime) {
-        this.etime = etime;
-    }
-
     public String getPlace() {
         return place;
     }
@@ -58,13 +53,11 @@ public class EventsObj
         return dur;
     }
 
-    public String getEdate() {
+    public String getDate() {
         return edate;
     }
 
-    public String getEtime() {
-        return etime;
-    }
+
 
     public String getName() {
         return name;

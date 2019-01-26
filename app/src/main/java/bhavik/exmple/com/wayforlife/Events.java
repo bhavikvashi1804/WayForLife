@@ -45,11 +45,24 @@ public class Events extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
-        myArrayList=new ArrayList<EventsObj>();
+
+
+        myArrayList=new ArrayList<>();
+
 
         myListView=(ListView)findViewById(R.id.eventlist);
-        myAdapter = new EventAdapter(getApplicationContext(),myArrayList);
+        myAdapter = new EventAdapter(this,myArrayList);
         myListView.setAdapter(myAdapter);
+
+        myArrayList=new ArrayList<EventsObj>();
+
+
+        myListView.setAdapter(myAdapter);
+
+
+
+
+
 
 
         boolean connected = false;
@@ -67,70 +80,52 @@ public class Events extends AppCompatActivity {
 
         if(connected)
         {
-            pd = new ProgressDialog(Events.this);
-            pd.show();
-            pd.setMessage("Geting events...");
+            //pd = new ProgressDialog(Events.this);
+            //pd.show();
+            //pd.setMessage("Geting events...");
 
-
-            myArrayList=new ArrayList<EventsObj>();
-
-
-
-            final Handler h = new Handler();
-            h.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    pd.dismiss();
-
-
+            //        pd.dismiss();
 
                     DatabaseReference r=FirebaseDatabase.getInstance().getReference();
-
-
 
                     r.child("EventInfo").addChildEventListener(new ChildEventListener() {
                         @Override
                         public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                            final EventsObj obj1=new EventsObj();
-                            final String EID=dataSnapshot.getKey();
 
+                            final String EID=dataSnapshot.getKey();
 
                             DatabaseReference r1=FirebaseDatabase.getInstance().getReference();
                             r1.child("EventInfo").child(EID).addChildEventListener(new ChildEventListener() {
                                 @Override
                                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                                    /*
 
+                                    String cEName="",cEDate="",cEPlace="",cEDur="",cEDesc="";
 
+                                    if(dataSnapshot.getKey().equals("Event Name"))
+                                    {
+                                        cEName=dataSnapshot.getValue(String.class);
+
+                                    }
                                     if(dataSnapshot.getKey().equals("Event Date"))
                                     {
-                                        obj1.setEdate(dataSnapshot.getValue(String.class));
+                                        cEDate=dataSnapshot.getValue(String.class);
                                     }
-                                    else if(dataSnapshot.getKey().equals("Event Name"))
+                                    if(dataSnapshot.getKey().equals("Event Desc"))
                                     {
-                                        obj1.setName(dataSnapshot.getValue(String.class));
+                                        cEDesc=dataSnapshot.getValue(String.class);
                                     }
-                                    else if(dataSnapshot.getKey().equals("Event Dur"))
+                                    if(dataSnapshot.getKey().equals("Event Dur"))
                                     {
-                                        obj1.setDur(dataSnapshot.getValue(String.class));
+                                        cEDur=dataSnapshot.getValue(String.class);
                                     }
-                                    else if(dataSnapshot.getKey().equals("Event Place"))
+                                    if(dataSnapshot.getKey().equals("Event Place"))
                                     {
-                                        obj1.setPlace(dataSnapshot.getValue(String.class));
+                                        cEPlace=dataSnapshot.getValue(String.class);
                                     }
-                                    else if(dataSnapshot.getKey().equals("Event Desc"))
-                                    {
-                                        obj1.setDesc(dataSnapshot.getValue(String.class));
-                                    }
-
-                                    */
-                                    //Log.d("My",)
-
-                                    //myArrayList.add(obj1);
-                                    //myAdapter.notifyDataSetChanged();
-
+                                    myArrayList.add(new EventsObj(cEName,cEDesc,cEPlace,cEDate,cEDur));
+                                    myAdapter.notifyDataSetChanged();
                                 }
 
                                 @Override
@@ -181,8 +176,6 @@ public class Events extends AppCompatActivity {
 
 
 
-                }
-            }, 7000);
 
 
 
@@ -193,11 +186,6 @@ public class Events extends AppCompatActivity {
         {
             Toast.makeText(getApplicationContext(),"Please check your internet connection",Toast.LENGTH_SHORT).show();
         }
-
-
-
-
-
     }
 
 
