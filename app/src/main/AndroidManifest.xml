@@ -40,6 +40,9 @@
         <activity android:name=".Events" />
         <activity android:name=".Report" />
         <activity android:name=".about_us" />
+        <activity android:name=".discussions" />
+        <activity android:name=".complaints" />
+        <activity android:name=".user_complaint"/>
     </application>
 
 </manifest>
