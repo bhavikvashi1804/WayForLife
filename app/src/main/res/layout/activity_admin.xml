@@ -31,18 +31,10 @@
             android:layout_margin="10dp"
             android:background="@drawable/rec1"
             android:id="@+id/activity_admin_updatee"
-            android:text="Update the Event"/>
+            android:text="Update/Delete the Event"/>
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/admin_deletee"
-            android:padding="8dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/rec1"
-            android:text="Delete the Event"
-            />
+
 
         <Button
             android:layout_width="wrap_content"

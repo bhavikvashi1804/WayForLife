@@ -29,8 +29,8 @@ public class AdminActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        Button update=(Button)findViewById(R.id.activity_admin_uploade);
-        update.setOnClickListener(new View.OnClickListener() {
+        Button upload=(Button)findViewById(R.id.activity_admin_uploade);
+        upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),uploadEvent.class);
@@ -38,6 +38,13 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+        Button update=(Button)findViewById(R.id.activity_admin_updatee);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         Button register=(Button)findViewById(R.id.adminloging_register);
         register.setOnClickListener(new View.OnClickListener() {

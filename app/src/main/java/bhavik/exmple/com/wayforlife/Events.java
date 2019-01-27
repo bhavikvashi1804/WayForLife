@@ -47,21 +47,13 @@ public class Events extends AppCompatActivity {
 
 
 
-        myArrayList=new ArrayList<>();
-
+        myArrayList=new ArrayList<EventsObj>();
 
         myListView=(ListView)findViewById(R.id.eventlist);
         myAdapter = new EventAdapter(this,myArrayList);
-        myListView.setAdapter(myAdapter);
-
-        myArrayList=new ArrayList<EventsObj>();
 
 
         myListView.setAdapter(myAdapter);
-
-
-
-
 
 
 
@@ -80,9 +72,9 @@ public class Events extends AppCompatActivity {
 
         if(connected)
         {
-            //pd = new ProgressDialog(Events.this);
-            //pd.show();
-            //pd.setMessage("Geting events...");
+            pd = new ProgressDialog(Events.this);
+            pd.show();
+            pd.setMessage("Geting events...");
 
             //        pd.dismiss();
 
@@ -94,6 +86,11 @@ public class Events extends AppCompatActivity {
 
 
                             final String EID=dataSnapshot.getKey();
+                            final String[] cEName = {""};
+                            final String[] cEDate = { "" };
+                            final String[] cEPlace = { "" };
+                            final String[] cEDur = { "" };
+                            final String[] cEDesc = { "" };
 
                             DatabaseReference r1=FirebaseDatabase.getInstance().getReference();
                             r1.child("EventInfo").child(EID).addChildEventListener(new ChildEventListener() {
@@ -101,32 +98,33 @@ public class Events extends AppCompatActivity {
                                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
 
-                                    String cEName="",cEDate="",cEPlace="",cEDur="",cEDesc="";
+
 
                                     if(dataSnapshot.getKey().equals("Event Name"))
                                     {
-                                        cEName=dataSnapshot.getValue(String.class);
+                                        cEName[0] =dataSnapshot.getValue(String.class);
 
                                     }
                                     if(dataSnapshot.getKey().equals("Event Date"))
                                     {
-                                        cEDate=dataSnapshot.getValue(String.class);
+                                        cEDate[0] =dataSnapshot.getValue(String.class);
                                     }
                                     if(dataSnapshot.getKey().equals("Event Desc"))
                                     {
-                                        cEDesc=dataSnapshot.getValue(String.class);
+                                        cEDesc[0] =dataSnapshot.getValue(String.class);
                                     }
                                     if(dataSnapshot.getKey().equals("Event Dur"))
                                     {
-                                        cEDur=dataSnapshot.getValue(String.class);
+                                        cEDur[0] =dataSnapshot.getValue(String.class);
                                     }
                                     if(dataSnapshot.getKey().equals("Event Place"))
                                     {
-                                        cEPlace=dataSnapshot.getValue(String.class);
+                                        cEPlace[0] =dataSnapshot.getValue(String.class);
                                     }
-                                    myArrayList.add(new EventsObj(cEName,cEDesc,cEPlace,cEDate,cEDur));
-                                    myAdapter.notifyDataSetChanged();
+
                                 }
+
+
 
                                 @Override
                                 public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -149,7 +147,16 @@ public class Events extends AppCompatActivity {
                                 }
                             });
 
+                            final Handler h = new Handler();
+                            h.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
 
+                                    myArrayList.add(new EventsObj(cEName[0], cEDesc[0], cEPlace[0], cEDate[0], cEDur[0]));
+                                    myAdapter.notifyDataSetChanged();
+                                    pd.dismiss();
+                                }
+                            }, 5000);
 
                         }
 
