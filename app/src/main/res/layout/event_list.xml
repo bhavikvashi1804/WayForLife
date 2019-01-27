@@ -3,8 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:background="@drawable/rec"
     android:padding="10dp"
-    android:background="@drawable/rec1">
+    >
 
     <TextView
         android:layout_height="wrap_content"
@@ -18,6 +19,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/event_list_eplace"
         android:text="Event place"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/event_list_desc"/>
 
     <LinearLayout
         android:layout_width="match_parent"

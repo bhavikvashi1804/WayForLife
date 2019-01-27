@@ -34,11 +34,14 @@ public class EventAdapter extends ArrayAdapter<EventsObj>
         TextView eplace=(TextView)convertView.findViewById(R.id.event_list_eplace);
         TextView edate=(TextView)convertView.findViewById(R.id.event_list_date);
         TextView edur=(TextView)convertView.findViewById(R.id.event_list_edur);
+        TextView edesc=(TextView)convertView.findViewById(R.id.event_list_desc);
+
 
         ename.setText(curEvent.getName());
         eplace.setText(curEvent.getPlace());
         edate.setText(curEvent.getDate());
         edur.setText(curEvent.getDur());
+        edesc.setText(curEvent.getDesc());
 
         return convertView;
     }

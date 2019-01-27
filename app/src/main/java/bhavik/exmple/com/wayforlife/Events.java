@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -55,6 +57,16 @@ public class Events extends AppCompatActivity {
 
         myListView.setAdapter(myAdapter);
 
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                EventsObj clickedObj= (EventsObj) parent.getItemAtPosition(position);
+                Intent i=new Intent(getApplicationContext(),DisplayOneEvent.class);
+                i.putExtra("EID",clickedObj.getID());
+                startActivity(i);
+            }
+        });
+
 
 
         boolean connected = false;
@@ -91,6 +103,7 @@ public class Events extends AppCompatActivity {
                             final String[] cEPlace = { "" };
                             final String[] cEDur = { "" };
                             final String[] cEDesc = { "" };
+                            final String cEID="";
 
                             DatabaseReference r1=FirebaseDatabase.getInstance().getReference();
                             r1.child("EventInfo").child(EID).addChildEventListener(new ChildEventListener() {
@@ -122,6 +135,7 @@ public class Events extends AppCompatActivity {
                                         cEPlace[0] =dataSnapshot.getValue(String.class);
                                     }
 
+
                                 }
 
 
@@ -152,7 +166,7 @@ public class Events extends AppCompatActivity {
                                 @Override
                                 public void run() {
 
-                                    myArrayList.add(new EventsObj(cEName[0], cEDesc[0], cEPlace[0], cEDate[0], cEDur[0]));
+                                    myArrayList.add(new EventsObj(EID,cEName[0], cEDesc[0], cEPlace[0], cEDate[0], cEDur[0]));
                                     myAdapter.notifyDataSetChanged();
                                     pd.dismiss();
                                 }

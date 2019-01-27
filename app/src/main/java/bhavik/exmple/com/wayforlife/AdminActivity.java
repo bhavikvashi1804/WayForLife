@@ -29,6 +29,8 @@ public class AdminActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
+
+
         Button upload=(Button)findViewById(R.id.activity_admin_uploade);
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +44,8 @@ public class AdminActivity extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),admin_EListView.class);
+                startActivity(i);
 
             }
         });

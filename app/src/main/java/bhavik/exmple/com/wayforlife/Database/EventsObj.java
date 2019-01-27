@@ -5,14 +5,15 @@ import java.util.Date;
 
 public class EventsObj
 {
-    String name,desc,place,edate,dur;
+    String ID,name,desc,place,edate,dur;
 
     public EventsObj(){
 
     }
 
-    public EventsObj(String name1,String desc1,String place1,String edate1,String dur1)
+    public EventsObj(String ID,String name1,String desc1,String place1,String edate1,String dur1)
     {
+        this.ID=ID;
         name=name1;
         desc=desc1;
         place=place1;
@@ -57,7 +58,13 @@ public class EventsObj
         return edate;
     }
 
+    public String getID() {
+        return ID;
+    }
 
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     public String getName() {
         return name;
