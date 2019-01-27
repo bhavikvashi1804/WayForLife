@@ -21,6 +21,9 @@
         <activity android:name=".DisplayOneEvent" />
         <activity android:name=".admin_EListView" />
         <activity android:name=".registerAdmin" />
+        <activity android:name=".discussions"/>
+        <activity android:name=".complaints"/>
+        <activity android:name=".user_complaint"/>
         <activity
             android:name=".AdminActivity"
             android:label="@string/title_activity_admin"
