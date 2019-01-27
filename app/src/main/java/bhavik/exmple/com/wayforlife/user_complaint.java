@@ -41,7 +41,7 @@ public class user_complaint extends AppCompatActivity {
 
         if(!TextUtils.isEmpty(complaintTitle) && !TextUtils.isEmpty(complaintComplaint)){
             complaints_model mcomplaints = new complaints_model(complaintTitle,complaintComplaint);
-            mdatabase.child("complaints").setValue(mcomplaints);
+            mdatabase.push().setValue(mcomplaints);
             title.setText("");
             complaint.setText("");
         }
