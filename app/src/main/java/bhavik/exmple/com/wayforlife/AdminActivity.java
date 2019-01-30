@@ -59,6 +59,24 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        
+         Button discussion =(Button) findViewById(R.id.add_discussion);
+        discussion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),admin_add_discussion.class);
+                startActivity(i);
+            }
+        });
+
+        Button poll =(Button) findViewById(R.id.add_poll);
+        poll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),admin_add_poll.class);
+                startActivity(i);
+            }
+        });
 
 
     }
