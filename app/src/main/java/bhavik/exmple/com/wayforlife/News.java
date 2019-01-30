@@ -34,6 +34,14 @@ public class News extends AppCompatActivity {
                 startActivity(k);
             }
         });
+        
+        polls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent j =new Intent(getApplicationContext(),polls.class);
+                startActivity(j);
+            }
+        });
 
     }
 }
