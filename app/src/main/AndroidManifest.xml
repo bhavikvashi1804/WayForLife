@@ -51,7 +51,6 @@
          <activity android:name=".admin_add_discussion" />
         <activity
             android:name=".admin_add_poll"
-            android:label="@string/title_activity_admin_add_poll"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".polls"></activity>
     </application>
